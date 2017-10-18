@@ -12,6 +12,9 @@
 		E3E33E331F96951D001F8FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E33E311F96951D001F8FBD /* Main.storyboard */; };
 		E3E33E351F96951D001F8FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3E33E341F96951D001F8FBD /* Assets.xcassets */; };
 		E3E33E381F96951D001F8FBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3E33E361F96951D001F8FBD /* LaunchScreen.storyboard */; };
+		E3E33E491F96A425001F8FBD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E33E481F96A425001F8FBD /* Alamofire.framework */; };
+		E3E33E4B1F96A43C001F8FBD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3E33E4A1F96A43C001F8FBD /* Alamofire.framework */; };
+		E3E33E4D1F96A719001F8FBD /* AImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E33E4C1F96A719001F8FBD /* AImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		E3E33E341F96951D001F8FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3E33E371F96951D001F8FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3E33E391F96951D001F8FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3E33E481F96A425001F8FBD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		E3E33E4A1F96A43C001F8FBD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/watchOS/Alamofire.framework; sourceTree = "<group>"; };
+		E3E33E4C1F96A719001F8FBD /* AImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AImage.swift; path = Carthage/Checkouts/AImage/AImage.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3E33E4B1F96A43C001F8FBD /* Alamofire.framework in Frameworks */,
+				E3E33E491F96A425001F8FBD /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +48,7 @@
 			children = (
 				E3E33E2C1F96951C001F8FBD /* yesno.wtf */,
 				E3E33E2B1F96951C001F8FBD /* Products */,
+				E3E33E411F969F77001F8FBD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +63,7 @@
 		E3E33E2C1F96951C001F8FBD /* yesno.wtf */ = {
 			isa = PBXGroup;
 			children = (
+				E3E33E4C1F96A719001F8FBD /* AImage.swift */,
 				E3E33E2D1F96951C001F8FBD /* AppDelegate.swift */,
 				E3E33E2F1F96951D001F8FBD /* ViewController.swift */,
 				E3E33E311F96951D001F8FBD /* Main.storyboard */,
@@ -62,6 +72,15 @@
 				E3E33E391F96951D001F8FBD /* Info.plist */,
 			);
 			path = yesno.wtf;
+			sourceTree = "<group>";
+		};
+		E3E33E411F969F77001F8FBD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3E33E481F96A425001F8FBD /* Alamofire.framework */,
+				E3E33E4A1F96A43C001F8FBD /* Alamofire.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +93,8 @@
 				E3E33E261F96951C001F8FBD /* Sources */,
 				E3E33E271F96951C001F8FBD /* Frameworks */,
 				E3E33E281F96951C001F8FBD /* Resources */,
+				E3E33E461F969FA7001F8FBD /* ShellScript */,
+				E3E33E471F96A0E3001F8FBD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -131,11 +152,43 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E3E33E461F969FA7001F8FBD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		E3E33E471F96A0E3001F8FBD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E3E33E261F96951C001F8FBD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3E33E4D1F96A719001F8FBD /* AImage.swift in Sources */,
 				E3E33E301F96951D001F8FBD /* ViewController.swift in Sources */,
 				E3E33E2E1F96951C001F8FBD /* AppDelegate.swift in Sources */,
 			);
@@ -276,6 +329,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H9XWAT9832;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
 				INFOPLIST_FILE = yesno.wtf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kadosh.yesno-wtf";
@@ -291,6 +349,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H9XWAT9832;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
 				INFOPLIST_FILE = yesno.wtf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kadosh.yesno-wtf";
